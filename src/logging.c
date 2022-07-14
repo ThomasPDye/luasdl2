@@ -28,7 +28,7 @@ typedef void (*LogFunc)(int, const char *, ...);
 
 static int loggingOutputFunc = LUA_REFNIL;
 
-static void *
+static void
 loggingCustomOutput(lua_State *L, int category, int priority, const char *msg)
 {
 	lua_rawgeti(L, LUA_REGISTRYINDEX, loggingOutputFunc);
@@ -38,7 +38,7 @@ loggingCustomOutput(lua_State *L, int category, int priority, const char *msg)
 	lua_call(L, 3, 0);
 
 	/* What is the use of that return? */
-	return NULL;
+	//return NULL;
 }
 
 static int
